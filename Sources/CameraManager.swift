@@ -275,8 +275,8 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
         }
     }
     
-    /// Property to change camera output quality.
-    open var cameraOutputQuality: AVCaptureSession.Preset = .high {
+     /// Property to change camera output quality.
+    open var cameraOutputQuality: AVCaptureSession.Preset = .hd1920x1080 {
         didSet {
             if cameraIsSetup && cameraOutputQuality != oldValue {
                 _updateCameraQualityMode(cameraOutputQuality)
@@ -1633,7 +1633,7 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
     fileprivate func _setupPreviewLayer() {
         if let validCaptureSession = captureSession {
             previewLayer = AVCaptureVideoPreviewLayer(session: validCaptureSession)
-            previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
         }
     }
     
